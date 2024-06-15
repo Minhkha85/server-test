@@ -20,6 +20,7 @@ app.use(express.json());
 //     res.sendFile(__dirname + '/public/views/index.html');
 // });   // * means any route.
 
+const PORT = 9999;
 
 const https = require('https');
 const fs = require('fs');
@@ -76,11 +77,11 @@ app.get("/export", async (req, res) => {
 //   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
 mongoose
-  .connect(process.env.MONGODB)
+  .connect("mongodb+srv://huynguyen030704:Huynguyen2004@cluster0.xdzqfz6.mongodb.net/test")
   .then(() => {
     console.log("Connected to MongoDB");
-    app.listen(process.env.PORT, "171.244.39.87", () => {
-      console.log("http://171.244.39.87" + process.env.PORT);
+    app.listen(PORT, "171.244.39.87", () => {
+      console.log("http://171.244.39.87" + PORT);
     });
     // app.listen(process.env.PORT);
     console.log("Hello" + process.env.PORT);
